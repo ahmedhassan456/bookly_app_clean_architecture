@@ -13,6 +13,4 @@ class FetchFeaturedBooksUseCase extends UseCase<List<BookEntity>>{
     return await homeRepo.fetchFeaturedBooks();
   }
   
-  
-  
 }
