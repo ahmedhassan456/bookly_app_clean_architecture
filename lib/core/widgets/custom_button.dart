@@ -19,7 +19,7 @@ class CustomButton extends StatelessWidget {
     return SizedBox(
       height: 48.0,
       child: TextButton(
-        onPressed: (){}, 
+        onPressed: () {},
         style: TextButton.styleFrom(
           backgroundColor: backgroundColor,
           shape: RoundedRectangleBorder(
