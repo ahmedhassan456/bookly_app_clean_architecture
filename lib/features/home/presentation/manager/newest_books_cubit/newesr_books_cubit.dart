@@ -2,23 +2,22 @@ import 'package:bloc/bloc.dart';
 
 import '../../../domain/entities/book_entity.dart';
 import '../../../domain/use_cases/fetch_newest_books_use_case.dart';
-
 part 'newest_books_states.dart';
 
-class FetchNewestBooksCubit extends Cubit<FetchNewestBooksState> {
-  FetchNewestBooksCubit(
-    this.fetchNewestBooksUseCase,
-  ) : super(FetchNewestBooksInitial());
+class NewestBooksCubit extends Cubit<NewestBooksState> {
+  NewestBooksCubit(
+    this.fechNewestBooksUseCase,
+  ) : super(NewestBooksInitial());
 
-  final FetchNewestBooksUseCase fetchNewestBooksUseCase;
+  final FetchNewestBooksUseCase fechNewestBooksUseCase;
 
   Future<void> fetchNewestBooks() async {
-    emit(FetchNewestBooksLoading());
-    var result = await fetchNewestBooksUseCase.call();
+    emit(NewestBooksLoading());
+    var result = await fechNewestBooksUseCase.call();
 
     result.fold(
-      (l) => emit(FetchNewestBooksFailure(l.message)),
-      (r) => emit(FetchNewestBooksSuccess(r)),
+      (l) => emit(NewestBooksFailure(l.message)),
+      (r) => emit(NewestBooksSuccess(r)),
     );
   }
 }

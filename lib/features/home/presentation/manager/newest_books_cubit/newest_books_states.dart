@@ -1,15 +1,15 @@
 part of 'newesr_books_cubit.dart';
 
-abstract class FetchNewestBooksState {}
+abstract class NewestBooksState {}
 
-final class FetchNewestBooksInitial extends FetchNewestBooksState {}
+final class NewestBooksInitial extends NewestBooksState {}
 
-final class FetchNewestBooksLoading extends FetchNewestBooksState {}
-final class FetchNewestBooksSuccess extends FetchNewestBooksState {
+final class NewestBooksLoading extends NewestBooksState {}
+final class NewestBooksSuccess extends NewestBooksState {
   final List<BookEntity> books;
-  FetchNewestBooksSuccess(this.books);
+  NewestBooksSuccess(this.books);
 }
-final class FetchNewestBooksFailure extends FetchNewestBooksState {
+final class NewestBooksFailure extends NewestBooksState {
   final String message;
-  FetchNewestBooksFailure(this.message);
+  NewestBooksFailure(this.message);
 }
