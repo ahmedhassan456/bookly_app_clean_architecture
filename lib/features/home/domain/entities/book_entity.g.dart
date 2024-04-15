@@ -16,7 +16,14 @@ class BookEntityAdapter extends TypeAdapter<BookEntity> {
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return BookEntity();
+    return BookEntity(
+      image: fields[1] as String?,
+      title: fields[2] as String,
+      authorName: fields[3] as String?,
+      price: fields[4] as num?,
+      rating: fields[5] as num?,
+      bookId: fields[0] as String,
+    );
   }
 
   @override
