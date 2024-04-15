@@ -4,17 +4,17 @@ part 'book_entity.g.dart';
 
 @HiveType(typeId: 0)
 class BookEntity {
-  @HiveType(typeId: 0)
+  @HiveField(0)
   final String bookId;
-  @HiveType(typeId: 1)
+  @HiveField(1)
   final String? image;
-  @HiveType(typeId: 2)
+  @HiveField(2)
   final String title;
-  @HiveType(typeId: 3)
+  @HiveField(3)
   final String? authorName;
-  @HiveType(typeId: 4)
+  @HiveField(4)
   final num? price;
-  @HiveType(typeId: 5)
+  @HiveField(5)
   final num? rating;
 
   BookEntity(

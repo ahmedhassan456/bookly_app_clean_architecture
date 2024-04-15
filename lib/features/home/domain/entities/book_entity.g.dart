@@ -28,7 +28,20 @@ class BookEntityAdapter extends TypeAdapter<BookEntity> {
 
   @override
   void write(BinaryWriter writer, BookEntity obj) {
-    writer.writeByte(0);
+    writer
+      ..writeByte(6)
+      ..writeByte(0)
+      ..write(obj.bookId)
+      ..writeByte(1)
+      ..write(obj.image)
+      ..writeByte(2)
+      ..write(obj.title)
+      ..writeByte(3)
+      ..write(obj.authorName)
+      ..writeByte(4)
+      ..write(obj.price)
+      ..writeByte(5)
+      ..write(obj.rating);
   }
 
   @override

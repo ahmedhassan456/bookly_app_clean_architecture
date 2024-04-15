@@ -14,12 +14,14 @@ class FeaturedBooksListViewBlocConsumer extends StatelessWidget {
     return BlocConsumer<FeaturedBooksCubit, FeaturedBooksState>(
       listener: (context, state) {},
       builder: (context, state) {
-        if (state is FeaturedBooksLoading) {
-          return const Center(child: CircularProgressIndicator());
+        if (state is FeaturedBooksSuccess) {
+          return FeaturedBooksListView(books:state.books);
         }else if (state is FeaturedBooksFailure) {
           return Text(state.message);
+        }else
+        {
+          return const Center(child: CircularProgressIndicator());
         }
-        return const FeaturedBooksListView();
       },
     );
   }
