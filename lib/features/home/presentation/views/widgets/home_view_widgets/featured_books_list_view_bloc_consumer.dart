@@ -1,4 +1,5 @@
 import 'package:bookly_app/features/home/presentation/views/widgets/home_view_widgets/featured_books_list_view.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/home_view_widgets/featured_books_shimmer_loading_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -41,7 +42,7 @@ class _FeaturedBooksListViewBlocConsumerState
         } else if (state is FeaturedBooksFailure) {
           return Text(state.message);
         } else {
-          return const Center(child: CircularProgressIndicator());
+          return const FeaturedBooksShimmerLoadingListView();
         }
       },
     );
