@@ -5,6 +5,7 @@ abstract class FeaturedBooksState {}
 class FeaturedBooksInitial extends FeaturedBooksState {}
 
 class FeaturedBooksLoading extends FeaturedBooksState {}
+class FeaturedBooksPaginationLoading extends FeaturedBooksState {}
 
 class FeaturedBooksSuccess extends FeaturedBooksState {
   final List<BookEntity> books;
@@ -14,4 +15,8 @@ class FeaturedBooksSuccess extends FeaturedBooksState {
 class FeaturedBooksFailure extends FeaturedBooksState {
   final String message;
   FeaturedBooksFailure(this.message);
+}
+class FeaturedBooksPaginationFailure extends FeaturedBooksState {
+  final String message;
+  FeaturedBooksPaginationFailure(this.message);
 }

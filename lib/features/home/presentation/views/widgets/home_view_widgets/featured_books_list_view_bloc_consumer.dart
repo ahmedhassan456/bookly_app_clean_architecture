@@ -2,24 +2,45 @@ import 'package:bookly_app/features/home/presentation/views/widgets/home_view_wi
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../core/utils/functions/build_error_snak_bar.dart';
+import '../../../../domain/entities/book_entity.dart';
 import '../../../manager/featured_books_cubit/featured_books_cubit.dart';
 
-class FeaturedBooksListViewBlocConsumer extends StatelessWidget {
+class FeaturedBooksListViewBlocConsumer extends StatefulWidget {
   const FeaturedBooksListViewBlocConsumer({
     super.key,
   });
 
   @override
+  State<FeaturedBooksListViewBlocConsumer> createState() =>
+      _FeaturedBooksListViewBlocConsumerState();
+}
+
+class _FeaturedBooksListViewBlocConsumerState
+    extends State<FeaturedBooksListViewBlocConsumer> {
+  List<BookEntity> books = [];
+  @override
   Widget build(BuildContext context) {
     return BlocConsumer<FeaturedBooksCubit, FeaturedBooksState>(
-      listener: (context, state) {},
-      builder: (context, state) {
+      listener: (context, state) {
         if (state is FeaturedBooksSuccess) {
-          return FeaturedBooksListView(books:state.books);
-        }else if (state is FeaturedBooksFailure) {
+          books.addAll(state.books);
+        }
+
+        if (state is FeaturedBooksPaginationFailure) {
+          showErrorSnackbar(context, state.message);
+        }
+      },
+      builder: (context, state) {
+        if (state is FeaturedBooksSuccess ||
+            state is FeaturedBooksPaginationLoading ||
+            state is FeaturedBooksPaginationFailure) {
+          return FeaturedBooksListView(
+            books: books,
+          );
+        } else if (state is FeaturedBooksFailure) {
           return Text(state.message);
-        }else
-        {
+        } else {
           return const Center(child: CircularProgressIndicator());
         }
       },
