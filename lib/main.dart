@@ -6,7 +6,7 @@ import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
 import 'package:bookly_app/features/home/domain/use_cases/fetch_featured_books_use_case.dart';
 import 'package:bookly_app/features/home/domain/use_cases/fetch_newest_books_use_case.dart';
 import 'package:bookly_app/features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
-import 'package:bookly_app/features/home/presentation/manager/newest_books_cubit/newesr_books_cubit.dart';
+import 'package:bookly_app/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/adapters.dart';
@@ -45,7 +45,7 @@ class Bookly extends StatelessWidget {
             FetchNewestBooksUseCase(
               getIt.get<HomeRepoImpl>(),
             ),
-          ),
+          )..fetchNewestBooks(),
         ),
       ],
       child: MaterialApp.router(

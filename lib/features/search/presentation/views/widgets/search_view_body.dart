@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/home_view_widgets/book_list_view_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -45,11 +46,18 @@ class SearchResultListView extends StatelessWidget {
     return ListView.builder(
       padding: EdgeInsets.zero,
       itemBuilder: (context, index) {
-        return const Padding(
-          padding: EdgeInsets.symmetric(
+        return Padding(
+          padding: const EdgeInsets.symmetric(
             vertical: 10.0,
           ),
-          child: BookListViewItem(),
+          child: BookListViewItem(book: BookEntity(
+            authorName: 'Ahmed',
+            bookId: '6',
+            price: 20.0,
+            rating: 4.8,
+            image: "",
+            title: 'Book Title',
+          ),),
         );
       },
       itemCount: 10,
