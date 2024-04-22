@@ -1,6 +1,6 @@
 import 'package:bookly_app/core/utils/functions/build_error_snak_bar.dart';
 import 'package:bookly_app/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/home_view_widgets/best_seller_shimmer_loading_list_view.dart';
+import 'package:bookly_app/core/widgets/items_list_shimmer_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -37,12 +37,10 @@ class _BestSellerListViewBlocConsumerState
             state is NewestBooksPaginationLoading ||
             state is NewestBooksPaginationFailure) {
           return BestSellerListView(bestSellerBooks: bestSellerBooks);
-        }else if (state is NewestBooksFailure)
-        {
+        } else if (state is NewestBooksFailure) {
           return Text(state.message);
-        }else
-        {
-          return const BestSellerShimmerLoadingListView();
+        } else {
+          return const ItemsListShimmerLoading();
         }
       },
     );

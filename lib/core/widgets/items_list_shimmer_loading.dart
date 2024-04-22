@@ -1,8 +1,8 @@
-import 'package:bookly_app/features/home/presentation/views/widgets/home_view_widgets/best_seller_shimmer_loading.dart';
+import 'package:bookly_app/core/widgets/item_list_shimmer_loading.dart';
 import 'package:flutter/material.dart';
 
-class BestSellerShimmerLoadingListView extends StatelessWidget {
-  const BestSellerShimmerLoadingListView({super.key});
+class ItemsListShimmerLoading extends StatelessWidget {
+  const ItemsListShimmerLoading({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class BestSellerShimmerLoadingListView extends StatelessWidget {
       itemBuilder: (context, index) {
         return const Padding(
           padding: EdgeInsets.symmetric(vertical: 10.0),
-          child: BestSellerShimmerLoading(),
+          child: ItemListShimmerLoading(),
         );
       },
       itemCount: 10,
